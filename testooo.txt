@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Freya</title>
+    <style>
+        body {
+            background-color: #f9c6d1; /* Sfondo rosa */
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #e63946;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .heart {
+            font-size: 3rem;
+            color: #e63946;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .heart:hover {
+            transform: scale(1.2);
+        }
+
+        .question, .answer {
+            font-size: 1.5rem;
+            margin: 20px;
+        }
+
+        .yes, .no {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .yes:hover, .no:hover {
+            background-color: #f1a7c1;
+        }
+
+        .yes {
+            color: #fff;
+            background-color: #e63946;
+        }
+
+        .no {
+            color: #fff;
+            background-color: #6c757d;
+        }
+
+        #noMessages {
+            display: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #e63946;
+            animation: popup 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes popup {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Happy Valentine's Day, Freya!</h1>
+    
+    <!-- Domanda interattiva -->
+    <div class="question" id="question">
+        <p>Will you be my valentine?</p>
+        <button class="yes" id="yesButton">
+            Yes
+            <a href="https://emoji.gg/emoji/5221-purplenod">
+                <img src="https://cdn3.emoji.gg/emojis/5221-purplenod.gif" width="32px" height="32px" alt="purplenod" />
+            </a>
+        </button>
+        <button class="no" id="noButton">No</button>
+    </div>
+
+    <!-- Messaggi per quando si clicca "No" -->
+    <div id="noMessages">
+        <p>You sure?</p>
+        <p>Pls pls pls give me a chance</p>
+    </div>
+
+    <!-- Testo finale -->
+    <div id="finalMessage" style="display:none;">
+        <p>Es gibt Menschen, die still und leise in unser Leben treten, und andere, die einen bleibenden Eindruck hinterlassen. Du bist eine von denen, die mit ihrer Stärke und ihrem Geist die Welt zu einem besseren Ort machen. Du bist entschlossen, freundlich und hast eine Seele, die auf ihre eigene Weise erstrahlt.</p>
+        <p>Heute ist nicht nur Valentinstag, sondern auch ein Tag, um dich daran zu erinnern, wie besonders du bist. Ich hoffe, dass du immer Menschen findest, die deinen Wert erkennen, wohin du auch gehst.</p>
+        <p>Diese Seite ist nur ein kleiner Gedanke, um dir zu sagen, dass du das Beste verdienst. Frohen Valentinstag, Freya. 💖</p>
+    </div>
+
+    <span class="heart">❤️</span> <!-- Cuore interattivo -->
+
+</div>
+
+<script>
+    let yesButton = document.getElementById('yesButton');
+    let noButton = document.getElementById('noButton');
+    let noMessages = document.getElementById('noMessages');
+    let questionDiv = document.getElementById('question');
+    let finalMessage = document.getElementById('finalMessage');
+    let yesSize = 1;
+
+    yesButton.addEventListener('click', () => {
+        questionDiv.style.display = 'none';
+        finalMessage.style.display = 'block';
+        noMessages.style.display = 'none'; // Nasconde i messaggi quando clicchi Yes
+    });
+
+    noButton.addEventListener('click', () => {
+        noMessages.style.display = 'block';
+        yesSize += 0.3; // Aumenta la velocità di crescita della dimensione di "Yes"
+        yesButton.style.transform = `scale(${yesSize})`;
+    });
+</script>
+
+</body>
+</html>
